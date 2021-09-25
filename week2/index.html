@@ -30,16 +30,40 @@
         <p>Single Page Applications (SPAs) use  lot of JavaScript</p>
         <p>Progressive Web Apps(PWAs) is a web page that behave like a native app on a mobile device</p>
         <p>HTML5 games that use JavaScript are becoming popular</p>
-
-        <p>function mean(...values) {
-            let total = 0;
-            for(const value of values) {
-                total += value;
-            }
-            return total/values.length;
-        }</p>
         
+        <h3>Example of working with variable numbers of arguments</h3>
+        <pre>
+            <code>
+                function mean(<span>...values</span>) {
+                    let total = 0;
+                    for(const value of values) {
+                        total += value;
+                    }
+                return total/values.length;
+                }
+            </code>
+        </pre>
 
+        <h3>Ways of writing arrow functions</h3>
+        <pre>
+            <code>
+                const square = x => x*x;
+                const add = (x,y) => x + y;
+                const hello = () => alert('Hello World!');
+            </code>
+        </pre>
+        <h4>with curly braces</h4>
+        <pre>
+            <code>
+                const tax = (salary) => <span>{</span>
+                    const taxable = salary - 8000;
+                    const lowerRate = 0.25 * taxable;
+                    taxable = taxable - 20000;
+                    const higherRate = 0.4 * taxable;
+                    return lowerRate + higherRate;
+                <span>}</span>
+            </code>
+        </pre>
         <h3>Questions</h3>
         <p>Comparing my solution with the teacher's solution</p>
 
