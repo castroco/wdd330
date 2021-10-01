@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Carlos Castro</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normailze.css">
+    <link rel="stylesheet" href="css/small.css">
+    <link rel="stylesheet" href="css/medium.css">
+    <link rel="stylesheet" href="css/large.css">
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <h1>WDD 330 Notes for Week 3</h1>
+    </header>
+    <div>
+        <h2>Javascript.info</h2>
+        <p>When a function is called object.method(), the value of this during the call is object.</p>
+        <p>When this is accessed inside an arrow function, it is taken from outside.</p>
+
+        <h3>Exercises</h3>
+        <pre>
+            <code>
+                function makeUser() {
+                    return {
+                      name: "John",
+                      ref: this
+                    };
+                  }
+                  
+                  let user = makeUser();
+                  
+                  alert( user.ref.name );
+            </code>
+        </pre>
+        <p>What is the result of accessing its ref?</p>
+        <p>Answer: The result of accesing ref is the Windows Object.
+        </p>
+        <h3>Questions</h3>
+        <p>Why is this in the previous example?</p>
+
+        <h2>JavaScript: Novice to Ninja, 2nd Edition</h2>
+        <p> 
+            If a property’s value of an object is a function, it is known as a<span>method</span>
+        </p>
+        <h3>Example of literal object:</h3>
+        <pre>
+            <code>
+                const superman = {
+                    name: 'Superman',
+                    'real name': 'Clark Kent',
+                    height: 75,
+                    weight: 235,
+                    hero: true,
+                    villain: false,
+                    allies: ['Batman','Supergirl','Superboy'],
+                    fly() {
+                        return 'Up, up and away!';
+                    }
+                };
+            </code>
+        </pre>
+        
+        
+        <h3>Example of working with variable numbers of arguments</h3>
+        <pre>
+            <code>
+                function mean(<span>...values</span>) {
+                    let total = 0;
+                    for(const value of values) {
+                        total += value;
+                    }
+                return total/values.length;
+                }
+            </code>
+        </pre>
+
+        <h3>Questions</h3>
+        <p>Is the best option always write all the funtions in a .js file?</p>
+
+        
+
+        <h2>W03 Team Activity</h2>
+        <p><a href="team1w3.html">Team activity for week 3</a></p>
+        <p>The functions are in the js/team1w3.js file</p>
+        
+    </div>
+</body>
