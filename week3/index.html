@@ -92,7 +92,7 @@
                 const captainBritain = { name: 'Captain Britain', <span>hero: bewitched ? false : true</span> };
             </code>
         </pre>
-        <h3>To check if a prperty exist</h3>
+        <h3>To check if a property exist</h3>
         <pre>
             <code>
                 'city' in superman;
@@ -108,8 +108,31 @@
             <code>
                 for(const key in superman) {
                     console.log(key + ": " + superman[key]);
+
+        
+                for(const key of Object.keys(superman)) {  //only object's own properties
+                    console.log(key);
+                }
+
+                
+                Object.values() // same as Object.keys(superman) but with values.
+
+                
+                for(const [key,value] of Object.entries(superman)) {
+                    console.log(`${key}: ${value}`);
+                }  //pair property-value
             </code>
         </pre>
+
+        <h3>Add a property to an object</h3>
+        <pre><code>
+            superman.city = 'Metropolis';
+        </code></pre>
+        <h3>Remove a property of an object</h3>
+        <pre><code>
+            delete superman.fly
+        </code></pre>
+
 
         <h2>W03 Team Activity</h2>
         <p><a href="team1w3.html">Team activity for week 3</a></p>
