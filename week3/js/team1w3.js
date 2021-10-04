@@ -63,9 +63,9 @@ const people = [
 
 function solution_01() {
   const result = inventors.filter(
-    (inventor) => inventor.year >= 1500 && inventor.year < 1600
+    inventor => (inventor.year >= 1500 && inventor.year < 1600)
   );
-  console.log("Solution 01");
+  console.log("Solution 01.");
   console.log(result);
 }
 solution_01();
@@ -93,19 +93,30 @@ solution_03();
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
 function solution_04() {
-  inventors.forEach((e) => (e.age = e.passed - e.year));
+  const yearsLiving = inventors.reduce((totalOfYears, thisInventor) => {
+    totalOfYears = totalOfYears + (thisInventor.passed - thisInventor.year);
+    return totalOfYears;
+  },0);
   console.log("Solution 04");
+  console.log(`The inventors lived a total of ${yearsLiving} years`);
+
+  /* older code
+  inventors.forEach((e) => (e.age = e.passed - e.year));
+  
   inventors.forEach((e) => console.log(e.last + " " + e.age));
+  */
 }
 solution_04();
 
 // 5. Sort the inventors by years lived
 function solution_05() {
+  inventors.forEach((e) => (e.age = e.passed - e.year));
   const result = inventors.sort(function (age1, age2) {
     return age1.age - age2.age;
   });
   console.log("Solution 05");
-  console.log(result);
+  console.table(result);
+
 }
 solution_05();
 
