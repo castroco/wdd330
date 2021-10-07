@@ -10,39 +10,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normailze.css">
     <link rel="stylesheet" href="css/small.css">
-    <link rel="stylesheet" href="css/medium.css">
-    <link rel="stylesheet" href="css/large.css">
     <script src="js/main.js" defer></script>
 
 </head>
 <body>
-    <header>
-        <h1>WDD 330 Notes for Week 3</h1>
-    </header>
-    <div>
+    <div id="container">
+        <header>
+            <h1>WDD 330 Notes for Week 4</h1>
+        </header>
         <h2>JavaScript: Novice to Ninja, 2nd Edition</h2>
-        
+        <h3>Form example</h3>
+        <form name='search' action='/search'>
+            <input name='searchInput' placeholder='Search Here'>
+            <button type='submit'>Test Search</button>
+        </form>
         <p> 
-            If a property’s value of an object is a function, it is known as a<span>method</span>
+            We can access the form controls using their name attributes
         </p>
-        <h3>Example of literal object:</h3>
-        <pre>
-            <code>
-                const superman = {
-                    name: 'Superman',
-                    'real name': 'Clark Kent',
-                    height: 75,
-                    weight: 235,
-                    hero: true,
-                    villain: false,
-                    allies: ['Batman','Supergirl','Superboy'],
-                    fly() {
-                        return 'Up, up and away!';
-                    }
-                };
-            </code>
-        </pre>
+        <pre><code>
+            const input = form.searchInput
 
+            const input = form['searchInput']
+        </code></pre>
+
+        <p>Object to manually submit the form</p>
+        <pre><code>
+            &lt;button type='submit'&gt;Submit&lt;/button&gt;
+            <button type='submit'>Submit</button>
+
+            &lt;input type='submit' value='Submit'&gt;
+            <input type='submit' value='Submit'>
+
+            &lt;input type='image' src='button.png'&gt;
+            <input type='image' id="inputImg" src='img/button.svg'>
+        </code></pre>
+        <p><span>form.reset()</span> will reset all the form controls back</p>
+        
+        <h3>Another form example</h3>
+        <form id='hero'>
+            <p>With placeholder</p>
+            <label for='heroName'>Name:
+                <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32>
+            </label>
+            <p>Password type</p>
+            <label for='realName'>Real Name:
+                <input type='password' name='realName' id='realName'></label>
+            <button type='submit'>Submit</button>
+        </form>
+        <h3>Input with a pre-filled value</h3>
+        <label for='donation-amount'>Enter amount to donate: 
+            <input type='text' id ='donation-amount' name='donationAmount' value='10'>
+        </label> 
+        
+        <h3>Form Events</h3>
+        <pre><code>
+            input.addEventListener('focus', () => alert('focused'), false);
+
+            input.addEventListener('blur', () => alert('blurred'), false);
+
+            input.addEventListener('change', () => alert('changed'), false);
+
+            form.addEventListener ('submit', search, false);
+        </code></pre>
+
+        <h3>Other Form controls</h3>
+        
+        <h4>Check box</h4>
+        <p>Super Powers:</p>
+        <form id="hero2" >
+            <label for='flight'>Flight:
+                <input type='checkbox' id='flight' value='Flight' name='powers'>
+            </label>
+            <label for='strength'>Super Strength:
+                <input type='checkbox' id='strength' value='Strength' name='powers' checked>
+            </label>
+            <label for='speed'>Super Speed:
+                <input type='checkbox' id='speed' value='Super Speed' name='powers'>
+            </label>
+            <label for='energy'>Energy Blasts:
+                <input type='checkbox' id='energy' value='Energy Blasts' name='powers'>
+                </label>
+            <label for='telekinesis'>Telekinesis:
+                <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+            </label>
+            <button type='submit'>Submit Powers</button>
+        </form>
+        <p>Code to read the checkboxes</p>
+        <pre><code>
+            hero2.powers = [...form2.powers].filter(box => box.checked).map(box => box.value);
+        </code></pre>
+
+        <h4>Radio Buttons</h4>
+        <form id="hero3" >
+            <p>What type of hero are you?</p>
+            <label for='hero'>Hero:
+                <input type='radio' name='category' value='Hero' id='hero'>
+            </label>
+            <label for='villain'>Villain:
+                <input type='radio' name='category' value='Villain' id='villain'>
+            </label>
+            <label for='anti-hero'>Anti-Hero:
+                <input type='radio' name='category' value='Antihero' id='anti-hero'>
+            </label>
+        </form>
 
         <h2>W03 Team Activity</h2>
         <p><a href="team1w4.html">Team activity for week 4</a></p>

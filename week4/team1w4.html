@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Week 4 Team Assignment for WDD-330</title>
+    <link rel="stylesheet" type="text/css" href="css/team1w4.css" media="screen"></link>
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width: 1025px)" href="css/team1w4.css">
+</head>
+<body>
+    <main>
+        <div class='playerInput'>
+            <form class='playerForm'>
+                <label for="player1name">Player 1 Name</label><br>
+                <input type="text" id="player1name" name="player1name" placeholder="John"><br>
+                <label for="player2name">Player 2 Name</label><br>
+                <input type="text" id="player2name" name="player2name" placeholder="Bill"><br>
+                <input type="submit" value="Play Game!" id="submitPlayers">
+            </form>
+        </div>
+        <div>
+            <table class="gameTable">
+                <tr>
+                    <td class="square" id="0"></td>
+                    <td class="square" id="1"></td>
+                    <td class="square" id="2"></td>
+                </tr>
+                <tr>
+                    <td class="square" id="3"></td>
+                    <td class="square" id="4"></td>
+                    <td class="square" id="5"></td>
+                </tr>
+                <tr>
+                    <td class="square" id="6"></td>
+                    <td class="square" id="7"></td>
+                    <td class="square" id="8"></td>
+                </tr>
+            </table>
+            <button onclick="resetBoard()" id='reset'>Reset!</button>
+        </div>
+    </main>
+    <script src="js/team1w4.js"></script>
+</body>
+</html>
