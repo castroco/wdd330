@@ -38,7 +38,6 @@ try {
   }
 
   const hero = {};
-  alert(JSON.stringify(hero));
 
   // Second form
   const form1 = document.forms['hero'];
