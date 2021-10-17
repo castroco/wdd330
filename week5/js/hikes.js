@@ -52,7 +52,7 @@ export default class Hikes {
     this.parentElement.innerHTML = '';
     renderHikeList(this.parentElement, this.getAllHikes())
     this.addHikeListener();
-    this.buildBackButton.classList.add('hide');
+    this.backButton.classList.add('hide');
   }
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
@@ -73,6 +73,7 @@ export default class Hikes {
   }
 
   buildBackButton() {
+    console.log("button state: ", this.backButton);
     const buildBackButton = document.createElement("button");
     const div = document.createElement("div");
     buildBackButton.innerHTML = 'All Hikes';
