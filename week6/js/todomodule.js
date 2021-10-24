@@ -143,7 +143,6 @@ export default class Todolist {
   
 
   deleteTask(taskId) {
-    alert(`The task id is: ${taskId}`);
     localTaskList.forEach(objectElem => {
       let indexOfElem = localTaskList.indexOf(objectElem);
       console.log("indexOfElem", indexOfElem);
