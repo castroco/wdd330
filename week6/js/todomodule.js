@@ -22,10 +22,12 @@ const localTaskList = [
 
 ];
 
+var typeOfView = "All";
 
 export default class Todolist {
   constructor(elementId) {
     this.parentElement = document.getElementById(elementId);
+
   }
 
   displayBasicList() {
@@ -142,6 +144,20 @@ export default class Todolist {
 
   deleteTask(taskId) {
     alert(`The task id is: ${taskId}`);
+    localTaskList.forEach(objectElem => {
+      let indexOfElem = localTaskList.indexOf(objectElem);
+      console.log("indexOfElem", indexOfElem);
+      if (objectElem.id == taskId) {
+          localTaskList.splice(indexOfElem,  1);
+      }
+    });
+    if (typeOfView == "Active"){
+      this.showActiveTasks();
+    } else if(typeOfView == "Completed") {
+      this.showCompletedTasks();
+    } else {
+      this.showAllTasks();
+    }
   }
 
   completedClick(IsComplete, taskId) {
@@ -157,6 +173,7 @@ export default class Todolist {
   showAllTasks() {
     this.parentElement.innerHTML = '';
     this.parentElement.appendChild(this.createList(localTaskList));
+    typeOfView = "All";
   }
 
   showActiveTasks() {
@@ -166,12 +183,14 @@ export default class Todolist {
     console.log("node: ", this.parentElement.childNodes);
     this.parentElement.appendChild(this.createList(filteredList));
     console.log("node: ", this.parentElement.childNodes);
+    typeOfView = "Active";
   }
 
   showCompletedTasks() {
     let filteredList = localTaskList.filter(task => task.completed == true);
     this.parentElement.innerHTML = '';
     this.parentElement.appendChild(this.createList(filteredList));
+    typeOfView = "Completed";
   }
 
   addNewTask(newTaskTodo) {
@@ -180,7 +199,13 @@ export default class Todolist {
       content: newTaskTodo,
       completed: false
     })
-    this.showActiveTasks();
+    if (typeOfView == "Active"){
+      this.showActiveTasks();
+    } else if(typeOfView == "Completed") {
+      this.showCompletedTasks();
+    } else {
+      this.showAllTasks();
+    }
   }
 
 }
