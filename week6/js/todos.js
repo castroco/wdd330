@@ -1,4 +1,4 @@
-let day = Date.now();
+//let day = Date.now();
 //alert(day);
 import Todolist from "./todomodule.js";
 const todoList = new Todolist("todoListDiv");
