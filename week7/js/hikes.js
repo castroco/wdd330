@@ -1,9 +1,4 @@
-const comments = {
-  hikeName: "Bechler Falls",
-  date: new Date(),
-  content: comment
-};
-console.log(comments.date);
+
 const hikeList = [
   {
     name: "Bechler Falls",
@@ -46,6 +41,7 @@ export default class Hikes {
     this.backButton = this.buildBackButton();
   }
   // why is this function necessary?  hikeList is not exported, and so it cannot be seen outside of this module. I added this in case I ever need the list of hikes outside of the module. This also sets me up nicely if my data were to move. I can just change this method to the new source and everything will still work if I only access the data through this getter.
+
   getAllHikes() {
     return hikeList;
   }
@@ -73,6 +69,10 @@ export default class Hikes {
     const childrenArray = Array.from(this.parentElement.children);
     childrenArray.forEach(child => {
       child.addEventListener('click', e => {
+        console.log("e: ", e);
+        console.log("e.currentTarget: ", e.currentTarget);
+        console.log("e.currentTarget.dataset", e.currentTarget.dataset);
+        console.log("e.currentTarget.dataset.name", e.currentTarget.dataset.name);
         this.showOneHike(e.currentTarget.dataset.name);
       });
     });
