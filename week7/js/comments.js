@@ -1,59 +1,37 @@
-/*var cl = [
-    {
-      name: "Bechler Falls",
-      date: '2001-06-27',
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam dolores corrupti vitae alias error amet nostrum eius earum cumque totam inventore perferendis vel culpa pariatur, maiores dolorem laudantium, veritatis tempore.",
-      type:'hikes'
-    },
-    {
-      name: "Bechler Falls",
-      date: '2001-06-28',
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla autem consectetur voluptates quis odio, odit sint et pariatur praesentium reprehenderit id neque perspiciatis libero ea itaque nesciunt eveniet a corporis.",
-      type:'hikes'
-    },
-   {
-      name: "Teton Canyon",
-      date: '2001-06-27',
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni et in vel a, quas provident dicta nulla, veritatis ducimus, natus ut cumque cupiditate dolorem ad. Excepturi sit sed doloribus laudantium?",
-      type:'hikes'
-    } 
-  ];*/
-  
-
-    //const CommentsList = JSON.parse(localStorage.getItem('CommentsList'));
-    
-    /*localStorage.removeItem('CommentsList');
-    localStorage.setItem('CommentsList', JSON.stringify(CommentsList));
-    JSON.parse(localStorage.getItem('CommentsList'));
-    */
-  
-  
 
 var type = ""; // dellete may be
 export default class Comments {
     constructor(elementId, typeOfComments) {
+        console.log("elementId:", elementId);
+        console.log("typeOfComments:", typeOfComments);
         this.parentElement = document.getElementById(elementId);
         this.type = typeOfComments;
+        console.log("this.type:", this.type);
         this.cl = getFromLocalStorge(this.type) || [];
+        console.log("this.cl:", this.cl);
+        
     }
 
     showCommentsList(typeOfFilter) {
         if (typeOfFilter == 'all') {
-            this.renderCommentList(this.getAllComments());
+            this.renderCommentList(this.getAllComments(), typeOfFilter);
         } else {
-            this.renderCommentList(this.filterCommentsByName(typeOfFilter));
+            this.renderCommentList(this.filterCommentsByName(typeOfFilter), typeOfFilter);
         }
 
     }
-
+    
     getAllComments() {
-        let answer = this.cl.filter(comment => comment.type === this.type);
-        //console.log("answer get all comments: ", answer);
-        return answer;
+        return this.cl;
     }
-
-    renderCommentList(listOfCommentsToRender) {
-        //console.log("listOfCommentsToRender: ",listOfCommentsToRender);
+    
+    filterCommentsByName(typeOfFilter) {
+        return this.cl.filter(comment => (comment.name === typeOfFilter));
+    }
+    
+    renderCommentList(listOfCommentsToRender, typeOfFilter) {
+        console.log("listOfCommentsToRender: ",listOfCommentsToRender);
+        console.log("ttypeOfFilter: ",typeOfFilter);
         
         let listOfComments = document.createElement("ul");
         listOfCommentsToRender.forEach( comment => {
@@ -72,48 +50,54 @@ export default class Comments {
             listOfComments.appendChild(individualComment); // add the line
         });
         this.parentElement.innerHTML = '';
+        let title = document.createElement("h1");
+        title.innerText = "Comments";
+        this.parentElement.appendChild(title);
         this.parentElement.appendChild(listOfComments); // add to the list
 
-        let addNewDiv = document.createElement("div");
+        
         //addNewDiv.id = "addNewDiv";
 
-      let newCommentInput = document.createElement("input");
-      newCommentInput.type = 'text';
-
-      let addCommentInputButton = document.createElement("input");
-      addCommentInputButton.type = 'button';
-      addCommentInputButton.value = "+";
-
-      addCommentInputButton.addEventListener('click', () => {
-        this.addComment(newCommentInput.value);
-      });
-
-      addNewDiv.appendChild(newCommentInput);
-      addNewDiv.appendChild(addCommentInputButton);
-
-      this.parentElement.appendChild(addNewDiv);
+        
+        if (typeOfFilter !== "all") {
+            let addNewDiv = document.createElement("div");
+            addNewDiv.id = "addNewDiv";
+            let newCommentInput = document.createElement("input");
+            newCommentInput.type = 'text';
       
-    }
-    
-    filterCommentsByName(typeOfFilter) {
-        return this.cl.filter(comment => (comment.type === this.type && comment.name === typeOfFilter));
+            let addCommentInputButton = document.createElement("input");
+            addCommentInputButton.type = 'button';
+            addCommentInputButton.value = "+";
+            
+            addCommentInputButton.addEventListener('click', () => {
+                this.addComment(newCommentInput.value, typeOfFilter);
+            });
+ 
+            addNewDiv.appendChild(newCommentInput);
+            addNewDiv.appendChild(addCommentInputButton);
+
+            this.parentElement.appendChild(addNewDiv);
+        }
     }
 
-    /// WORKING HERE
-    addComment(newComment) {
-      var c = {
-            name: "Bechler Falls",
+    addComment(newComment, nameOfComment) {
+        var c = {
+            name: nameOfComment,
             date: '2001-06-27',
             content: newComment,
-            type: 'hikes'
+            type: this.type
         }
         this.cl.push(c);
         console.log("cl: ", this.cl);
         addLocalSotrage(this.type, this.cl);
-      }
+        this.showCommentsList(nameOfComment);
+
+    }
 }
     function addLocalSotrage(key, data) {
-        localStorage.setItem('CommentsList', JSON.stringify(data));
+        console.log("key in LS:", key);
+        console.log("data in LS:", data);
+        localStorage.setItem(key, JSON.stringify(data));
     }
 
     function getFromLocalStorge(key) {

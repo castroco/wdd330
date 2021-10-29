@@ -4,13 +4,14 @@ h1 {
 }
 #commentsDiv {
     min-width: 350px;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 40px auto;
 }
+
 #commentsDiv ul {
     display: grid;
     align-items: center;
-    padding-left: 0;
+    padding: 0 20px;
 }
 
 #commentsDiv ul li {
@@ -28,4 +29,18 @@ h1 {
 
 #commentsDiv ul li {
     list-style-type: none;
+}
+
+#addNewDiv {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    margin: 30px 0;
+    padding: 0 20px;
+}
+
+#addNewDiv input[type="button"] {
+    height: 40px;
+    width: 40px;
+    font-size: 2em;
+    place-self: center;
 }
