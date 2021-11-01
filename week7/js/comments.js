@@ -83,7 +83,7 @@ export default class Comments {
     addComment(newComment, nameOfComment) {
         var c = {
             name: nameOfComment,
-            date: '2001-06-27',
+            date: getToday(),
             content: newComment,
             type: this.type
         }
@@ -102,4 +102,13 @@ export default class Comments {
 
     function getFromLocalStorge(key) {
         return JSON.parse(window.localStorage.getItem(key));
+    }
+
+    function getToday() {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, "0");
+        let mm = String(today.getMonth() + 1).padStart(2, "0");
+        let yyyy = today.getFullYear();
+        today = yyyy + "-" + mm + "-" + dd;
+        return today;
     }
