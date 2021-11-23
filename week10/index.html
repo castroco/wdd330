@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Carlos Castro</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normailze.css">
+    <link rel="stylesheet" href="css/small.css">
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>WDD 330 Notes for Week 10</h1>
+        </header>
+        <h2>Client-side form validation</h2>
+        <h4>Why validating</h4>
+        <ul>
+            <li>We want to get the right data, in the right format</li>
+            <li>We want to protect our users' data</li>
+            <li>We want to protect ourselves</li>
+        </ul>
+
+        <h4>Types of client-side validation</h4>
+        <ul>
+            <li>Built-in form validation</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <h4>Built-in form validation elements</h4>
+        <ul>
+            <li>required</li>
+            <li>minlength and maxlength</li>
+            <li>min and max</li>
+            <li>type</li>
+            <li>pattern or regular expression </li>
+            <li>:valid</li>
+            <li>:invalid</li>
+            <li>:out-of-range</li>
+            <li>badInput</li>
+            <li>patternMismatch</li>
+            <li>rangeOverflow</li>
+            <li>rangeUnderflow</li>
+            <li>stepMismatch</li>
+            <li>tooLong</li>
+            <li>tooShort</li>
+            <li>typeMismatch</li>
+            <li>valueMissing</li>
+            <li>customError</li>
+        </ul>
+
+        <h4>Validating input</h4>
+        <form id='testing'>
+            <label for="choose">Would you prefer a banana, orange or cherry?</label>
+            <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry|[Oo]range" list="l1">
+            <datalist id="l1">
+                <option>Banana</option>
+                <option>Cherry</option>
+                <option>Orange</option>
+            </datalist>
+            <div>
+                <label for="number">How many would you like?</label>
+                <input type="number" id="number" name="amount" value="1" min="1" max="10" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <h2>W10 Team Activity</h2>
+        <p><a href="team1w10.html">Team activity for week 10</a></p>
+        <p>The functions are in ./js folder</p>
+
+        <p><a href="teacher/quakes.html">Teachers solution for the activity week 10</a></p>
+    
+
+    </div>
+</body>

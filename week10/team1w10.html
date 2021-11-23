@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Quakes</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <main id="content">
+        <h1>Quake List</h1>
+        <div class="radius">
+                <form action="" name="radiusForm">
+                <label for="radius">Enter Radius Here: </label>
+                <input type="number" name="radius" id="radius" value=100>
+                <label for="starttime">Enter Start Time: </label>
+                <input type="date" name="starttime" id="starttime">
+                <label for="starttime">Enter Start Time: </label>
+                <input type="date" name="endtime" id="endtime">
+                <input type="submit">
+                </form>
+        </div>
+        <div>
+            <ul id="quakeList" class="quakeStyles"></ul>
+            <div class="hidden"></div>
+        </div>
+
+        
+      </main>
+  
+      <script src="js/index.js" type="module"></script>
+</body>
+</html>
