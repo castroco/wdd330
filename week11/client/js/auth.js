@@ -17,11 +17,11 @@ export default class Auth {
     };
     try {
       // 1. use the makeRequest function to pass our credentials to the server
-      makeRequest('login', 'POST', {
-    password: password.value,
-    email: username.value
-})
       
+      let datWithToken = await makeRequest('login', 'POST', postData);
+      this.jwtToken = datWithToken.accessToken;
+      console.log("datWithToken: ", datWithToken.accessToken);
+
       // 2. if we get a successful response...we have a token!  Store it since we will need to send it with every request to the API.
       
       // let's get the user details as well and store them locally in the class
@@ -42,8 +42,11 @@ export default class Auth {
     }
   }
   // uses the email of the currently logged in user to pull up the full user details for that user from the database
-  async getCurrentUser(email) {
+  async getCurrentUser(userName) {
     try {
+        let myUser = await makeRequest('users?' + userName, 'GET',{email: userName} , this.jwtToken);
+        console.log("myUsers in auth: ", myUser);
+        //return myUser;
       // 3. add the code here to make a request for the user identified by email...don't forget to send the token!
     } catch (error) {
       // if there were any errors display them
