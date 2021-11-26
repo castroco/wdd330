@@ -9,15 +9,3 @@ function tryToLog(event) {
     event.preventDefault();
     mylogin.login();
 }
-
-/*makeRequest('login', 'POST', {
-    password: 'user1',
-    email: 'user1@email.com'
-})*/
-
-/*const answer = makeRequest('login', 'POST', {
-    password: 'user1',
-    email: 'user1@email.com'
-});*/
-
-//console.log("answer: ", answer);

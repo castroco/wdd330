@@ -19,11 +19,11 @@ export default class Auth {
       // 1. use the makeRequest function to pass our credentials to the server
       
       let datWithToken = await makeRequest('login', 'POST', postData);
-      this.jwtToken = datWithToken.accessToken;
-      console.log("datWithToken: ", datWithToken.accessToken);
+      
+      //console.log("datWithToken: ", datWithToken.accessToken);
 
       // 2. if we get a successful response...we have a token!  Store it since we will need to send it with every request to the API.
-      
+      this.jwtToken = datWithToken.accessToken;
       // let's get the user details as well and store them locally in the class
       // you can pass a query to the API by appending it on the end of the url like this: 'users?email=' + email
       this.user = await this.getCurrentUser(username.value);
@@ -44,10 +44,12 @@ export default class Auth {
   // uses the email of the currently logged in user to pull up the full user details for that user from the database
   async getCurrentUser(userName) {
     try {
-        let myUser = await makeRequest('users?' + userName, 'GET',{email: userName} , this.jwtToken);
-        console.log("myUsers in auth: ", myUser);
-        //return myUser;
       // 3. add the code here to make a request for the user identified by email...don't forget to send the token!
+      let myUsers = await makeRequest('users?', 'GET',{} , this.jwtToken);
+      console.log("myUsers in auth: ", myUsers);
+      let myUser = extractUser(myUsers, userName);
+      this.user = myUser;
+        //return myUser;
     } catch (error) {
       // if there were any errors display them
       console.log(error);
@@ -60,4 +62,16 @@ export default class Auth {
   get token() {
     return this.jwtToken;
   }
-} // end auth class
+
+  
+} // end auth 
+
+function extractUser(Users, email) {
+  let returnedUser = {};
+  Users.forEach(element => {
+    console.log("user: ", element);
+    if (element.email == email) returnedUser = element;
+  });
+  console.log(" returnedUser: ",  returnedUser);
+  return returnedUser;
+}
