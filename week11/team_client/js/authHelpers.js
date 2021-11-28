@@ -1,18 +1,51 @@
+/***********Intructors code start *************/
+export class Errors {
+  constructor(errorElementId) {
+    this.errorElement = document.getElementById(errorElementId);
+  }
+
+  handleError(error, callback) {
+    // parse out the error code from the error string
+    const code = error.message.substring(0, 3);
+    this.displayError(error);
+    // if it is something related to authentication then show the login form again.
+    if (code == 500 || code == 401) {
+      callback();
+    }
+    console.log(code);
+  }
+
+  displayError(error) {
+    this.errorElement.innerHTML = error.message;
+    this.errorElement.classList.remove("hidden");
+  }
+  clearError() {
+    this.errorElement.innerHTML = "";
+    this.errorElement.classList.add("hidden");
+  }
+}
+/***********Intructors code end *************/
+
 // Server Address
-const baseURL = 'http://127.0.0.1:3000/';
+const baseURL = "http://127.0.0.1:3000/";
 // helper function to make an http request with fetch.
 // returns a json object
-export async function makeRequest(url, method = 'GET', body = null, token = null) {
+export async function makeRequest(
+  url,
+  method = "GET",
+  body = null,
+  token = null
+) {
   // we will need to set some custom options for our fetch call
-    let options = {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-  
+  let options = {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
   // if we are sending any data with the request add it here
-  if (method == 'POST' || method == 'PUT') {
+  if (method == "POST" || method == "PUT") {
     options.body = JSON.stringify(body);
   }
 
@@ -24,13 +57,11 @@ export async function makeRequest(url, method = 'GET', body = null, token = null
   let completeUrl = baseURL + url;
   //console.log("completeUrl: ", completeUrl);
   //let testUrl = 'http://127.0.0.1:3000/users?user1@email.com:user1'
-  console.log("antes del fetch");
   const response = await fetch(completeUrl, options);
-  console.log("despues del fetch");
   //const response = await fetch(testUrl, options);
   // in this case we are processing the response as JSON before we check the status. The API we are using will send back more meaningful error messages than the default messages in the response, but we have to convert it before we can get to them.
   const data = await response.json();
-  console.log("data in authHelpers: ", data);
+  //console.log("data in authHelpers: ", data);
 
   if (!response.ok) {
     // server will send a 500 server error if the token expires...or a 401 if we are not authorized, ie bad username/password combination, and a 404 if the URL we requested does not exist. All of these would cause response.ok to be false
