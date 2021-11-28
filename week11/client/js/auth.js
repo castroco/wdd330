@@ -48,6 +48,7 @@ export default class Auth {
       let myUsers = await makeRequest('users?', 'GET',{} , this.jwtToken);
       console.log("myUsers in auth: ", myUsers);
       let myUser = extractUser(myUsers, userName);
+      //this.getPosts();
       this.user = myUser;
         //return myUser;
     } catch (error) {
@@ -64,6 +65,7 @@ export default class Auth {
   }
 
   
+  
 } // end auth 
 
 function extractUser(Users, email) {
@@ -74,4 +76,8 @@ function extractUser(Users, email) {
   });
   console.log(" returnedUser: ",  returnedUser);
   return returnedUser;
+}
+
+function test() {
+  console.log("In test");
 }

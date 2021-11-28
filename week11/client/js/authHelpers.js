@@ -22,12 +22,13 @@ export async function makeRequest(url, method = 'GET', body = null, token = null
   }
 
   let completeUrl = baseURL + url;
-  console.log("completeUrl: ", completeUrl);
-  
+  //console.log("completeUrl: ", completeUrl);
+  //let testUrl = 'http://127.0.0.1:3000/users?user1@email.com:user1'
   const response = await fetch(completeUrl, options);
+  //const response = await fetch(testUrl, options);
   // in this case we are processing the response as JSON before we check the status. The API we are using will send back more meaningful error messages than the default messages in the response, but we have to convert it before we can get to them.
   const data = await response.json();
-  console.log("data in authHelpers: ", data);
+  //console.log("data in authHelpers: ", data);
 
   if (!response.ok) {
     // server will send a 500 server error if the token expires...or a 401 if we are not authorized, ie bad username/password combination, and a 404 if the URL we requested does not exist. All of these would cause response.ok to be false
