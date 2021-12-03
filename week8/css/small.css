@@ -41,8 +41,25 @@ h4 {
     display: block;
     margin: 10px;
 }
+#translateId {
+    transition-property : transform;
+    transition-duration: 4s;
+    transition-timing-function: ease;
+    transition-delay: 200ms;
+    padding: 5px 5px 5px 0;
+    width: 100px;
+}
 #translateId:hover{
-    transform: translate(60px, 2px);
+    transform: translate(200px, 2px);
+}
+
+#scaleId {
+    transition-property : transform;
+    transition-duration: 4s;
+    transition-timing-function: ease;
+    transition-delay: 200ms;
+    padding: 5px 5px 5px 0;
+    width: 100px;
 }
 
 #scaleId:hover{
@@ -52,23 +69,35 @@ h4 {
 
 #rotateId {
     width: 50px;
+    transition-property : transform;
+    transition-duration: 4s;
+    transition-timing-function: ease;
+    transition-delay: 200ms;
+    padding: 5px 5px 5px 0;
 }
 
 #rotateId:hover{
-background-color: #red;
 transform: rotate(90deg);
 }
 
 #skewId {
     width: 150px;
+    transition-property : transform;
+    transition-duration: 4s;
+    transition-timing-function: ease;
+    transition-delay: 200ms;
+    padding: 5px 5px 5px 0;
 }
 #skewId:hover{
-    transform: skew(15deg, 4deg);
+    transform: skew(15deg, 15deg);
 }
 #transitionId {
     width: fit-content;
     transition-property : transform;
-    transition-duration: 4s; 
+    transition-duration: 4s;
+    transition-timing-function: ease;
+    transition-delay: 200ms;
+    padding: 5px 5px 5px 0; 
 }
 
 #transitionId:hover {
