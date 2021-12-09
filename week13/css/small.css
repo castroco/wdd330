@@ -1,0 +1,52 @@
+body {
+    /*background-color: red;*/
+}
+header {
+    width: 100%;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0;
+    font-size: 1.5em;
+    color: #b7c3f3;
+    background-color: #27282b;
+}
+aside h2 {
+    margin: 5px 0;
+}
+#contentId {
+    display: grid;
+    grid-template-columns: 1.5fr 6fr ;
+}
+
+#aside1 {
+    overflow-y: scroll;
+    height: 555px;
+    /*background-color: blue;*/
+    color: #7209b7;
+    margin-left: 0;
+}
+#aside1 ul {
+    margin: 0;
+    padding: 5px 0 5px 10px;
+}
+#aside1 ul ul a {
+    display: block;
+    padding: 4px 0;
+    color: #560bad;
+}
+#videoId {
+    height: 500px;
+    text-align: center;
+    background-color: #27282b;
+    padding: 5px;
+    border-top: 1px solid #b7c3f3;
+    border-left: 1px solid #b7c3f3;
+}
+iframe {
+    width: 800px;
+    height: 450px;
+}
+
+
