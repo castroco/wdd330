@@ -1,25 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Carlos Castro</title>
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/normailze.css">
-    <link rel="stylesheet" href="css/small.css">
-    <script src="js/main.js" type="module" defer></script>
+export function displayCourse(course, whereToDisplay) {
+    let container = document.querySelector(whereToDisplay);
+    container.innerHTML = '';
 
-</head>
-<body>
-    <header>
-        Math 101 Second Grade High School
-    </header>
-    <div id="contentId">
-        <nav id="nav1">
-            <h2>Algebra</h2>
+    course.modules.forEach(module => {
+        const moduleTitle = document.createElement('h2');
+        moduleTitle.innerHTML = module.name;
+        container.appendChild(moduleTitle);
+        const topicsList = document.createElement('ul');
+        module.topics.forEach(topic => {
+            const topicTitle = document.createElement('li');
+            topicTitle.innerHTML = topic.topicName;
+            topicsList.appendChild(topicTitle);
+            const subTopicsList = document.createElement('ul');
+            topic.subtopicsVideos.forEach(video => {
+                const subTopicName = document.createElement('li');
+                subTopicName.innerHTML = video.subtName;
+                subTopicsList.appendChild(subTopicName);
+            });
+            topicsList.appendChild(subTopicsList);
+            container.appendChild(topicsList);
+
+        });
+        //console.log("module.name: ", module.name);
+        console.log("module: ", module);
+        
+        //quake.setAttribute('data-id', element.id);
+        //quake.innerHTML = `${element.properties.title}
+        //<p>${new Date(element.properties.time)}</p>`;
+        //listElement.appendChild(quake);
+    });
+    /*
+    <h2>Algebra</h2>
             <h3>Logarithms</h3>
             <ul>
                 Percentage change
@@ -66,9 +77,5 @@
                         <a href="">Exercise 3</a>
                     </ul>
             </ul>
-        </nav>
-        <div id="videoId">
-            <iframe width="800" height="450" src="https://www.youtube.com/embed/pZTuEHrnOMg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-</body>
+            */
+}

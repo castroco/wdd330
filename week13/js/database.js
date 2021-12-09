@@ -69,6 +69,6 @@ const baseCourse = {
 
 export function get_courseDetail(course = null, profile = 'default') {
     let answer = baseCourse;
-    console.log("answer: ", answer);
+    //console.log("answer: ", answer);
     return answer;
 }
