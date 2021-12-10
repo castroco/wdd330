@@ -14,22 +14,22 @@ const baseCourse = {
                         {
                             subtName : 'Introduction',
                             subtOrder : 1,
-                            subtLink : 'https://youtu.be/pZTuEHrnOMg'
+                            subtLink : 'pZTuEHrnOMg'
                         },
                         {
                             subtName : 'Logaritmo Natural',
                             subtOrder : 2,
-                            subtLink : 'https://youtu.be/C0BIfEB0eJM'
+                            subtLink : 'C0BIfEB0eJM'
                         },
                         {
                             subtName : 'Logaritmo de un numero',
                             subtOrder : 3,
-                            subtLink : 'https://youtu.be/6kiXVr3mVp8'
+                            subtLink : '6kiXVr3mVp8'
                         },
                         {
                             subtName : 'Logaritmo de un producto',
                             subtOrder : 4,
-                            subtLink : 'https://youtu.be/6kiXVr3mVp8'
+                            subtLink : '6kiXVr3mVp8'
                         }
                     ]
                 }
@@ -47,17 +47,17 @@ const baseCourse = {
                         {
                             subtName : 'Introduction',
                             subtOrder : 1,
-                            subtLink : 'https://youtu.be/W5yMHQXpoQs'
+                            subtLink : 'W5yMHQXpoQs'
                         },
                         {
                             subtName : 'Volumen del prisma recto',
                             subtOrder : 2,
-                            subtLink : 'https://youtu.be/N50Q0ZctD2U'
+                            subtLink : 'N50Q0ZctD2U'
                         },
                         {
                             subtName : 'Base polígono regular',
                             subtOrder : 3,
-                            subtLink : 'https://youtu.be/N8q0pk6hfCQ'
+                            subtLink : 'N8q0pk6hfCQ'
                         }
                     ]
                 }
