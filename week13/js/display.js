@@ -23,7 +23,7 @@ export function displayCourse(course, whereToDisplay) {
                 //alert("click");
                     let videoPlayer = document.querySelector('iframe')
                     //console.log(videoPlayer.src);
-                    videoPlayer.src = `https://www.youtube.com/embed/${video.subtLink}?enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A5500&widgetid=1`;
+                    videoPlayer.src = `https://www.youtube.com/embed/${video.subtLink}?enablejsapi=1&modestbranding=1&rel=0&showinfo=0&start=10&origin=http%3A%2F%2Flocalhost%3A5500&widgetid=1`;
                 });
                 subTopicsList.appendChild(subTopicName);
             });

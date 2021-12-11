@@ -29,18 +29,27 @@ nav h2 {
     margin: 0;
     padding: 5px 0 5px 10px;
 }
-#nav1 ul ul a {
-    display: block;
-    padding: 4px 0;
-    color: #560bad;
+#nav1 ul ul li{
+    /*color: #560bad;*/
+    padding: 5px 0;
 }
-#videoId {
-    height: 480px;
+#nav1 ul ul li:hover {
+    cursor: pointer;
+    font-size: 1.05em;
+    text-shadow: -2px -2px 1px #f8c9f1;
+}
+#videoContainer {
+    height: 500px;
     text-align: center;
     background-color: #27282b;
     padding: 5px;
     border-top: 1px solid #b7c3f3;
-    border-left: 1px solid #b7c3f3;
+    border-left: 2px solid #b7c3f3;
+}
+#videoId {
+    height: 480px;
+    text-align: center;
+
 }
 iframe {
     width: 800px;

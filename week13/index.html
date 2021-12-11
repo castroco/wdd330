@@ -21,12 +21,13 @@
     <div id="contentId">
         <nav id="nav1">
         </nav>
-        <div id="videoId"></div>
-
+        <div id="videoContainer" >
+            <div id="videoId"></div>
+        </div>
         
         
     </div>
-    
+
    
     <script>
     //var tag = document.createElement('script');
@@ -43,6 +44,8 @@
             height: '360',
             width: '640',
             videoId: 'M7lc1UVf-VE',
+            //modestbranding: '1',
+            //start: '10',
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
@@ -58,12 +61,15 @@
     var done = false;
     function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 4000);
+            setTimeout(pauseVideo, 20000);
             done = true;
         }
     }
     function stopVideo() {
-    player.stopVideo();
+        player.stopVideo();
+    }
+    function pauseVideo() {
+    player.pauseVideo();
     }
 
     
