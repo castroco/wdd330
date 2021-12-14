@@ -19,7 +19,7 @@
         Math 101 Second Grade High School
     </header>
     <div id="filter">
-        
+
     </div>
     <div id="courses"></div>
     <div id="contentId">
@@ -65,7 +65,7 @@
     var done = false;
     function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(pauseVideo, 20000);
+            setTimeout(pauseVideo, 4000);
             done = true;
         }
     }
